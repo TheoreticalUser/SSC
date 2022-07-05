@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\mrcastor33\source\repos\SSC\SSC\bin\Release\netcoreapp3.1\publish\</_PublishTargetUrl>
+    <History>True|2021-11-23T18:53:30.4685927Z;True|2021-11-16T13:01:22.0123380-06:00;True|2021-11-16T10:50:19.2676368-06:00;True|2021-11-16T10:23:57.2917440-06:00;</History>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="ConnectionStrings">
+      <Value>Data Source=SERVER;bInitial Catalog=Campus6;bUser ID=USER_ID;Password=PASSWORD</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

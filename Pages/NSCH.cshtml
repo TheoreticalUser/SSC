@@ -1,0 +1,35 @@
+﻿@page "/NSCH/{Id?}"
+@model SSC.Pages.NSCHModel
+@{
+    ViewData["Title"] = "National Student Clearinghouse Verification";
+}
+@section Styles {
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/css/NSCHStyle.css")>
+}
+
+<body>
+    <div class="header">
+        <img src="xxxx_logo.png" />
+        <h2>National Student Clearinghouse</h2>
+    </div>
+    <div class="container">
+        <blockquote>
+            <p>
+                XXXX university is a participant with the National Student Clearinghouse and is
+                eligible for the Student Self-Service program. This program allows XXXX students
+                to view their enrollment histories and enrollment verifications sent to student
+                service providers, like health insurers, or print enrollment certificates to provide
+                to these organizations themselves, all at no charge. Students can also view deferments
+                sent to their lenders, as well as link to real-time information on their student
+                loans.
+            </p>
+            <p>
+                The button below will open a new window and automatically connect and log you in on
+                the National Student Clearinghouse site.
+            </p>
+            <form method="post">
+                <input type="submit" value="Make sure to click Logout when you are finished!" />
+            </form>
+        </blockquote>
+    </div>
+</body>

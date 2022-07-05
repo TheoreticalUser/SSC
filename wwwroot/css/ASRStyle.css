@@ -1,0 +1,95 @@
+body {
+    font-family: "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+    background: linear-gradient(#084483 50%, #2d8bc0, white) fixed;
+}
+
+.header {
+    text-align: center;
+}
+
+h2 {
+    color: white;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 6px;
+    border-style: solid;
+    border-color: #2d8bc0;
+    border-width: 2px;
+}
+
+fieldset {
+    display: flex;
+    flex: 1 0 auto;
+    flex-wrap: wrap;
+    flex-basis: 80%;
+    border-radius: 6px;
+    /* flex-flow: column wrap; */
+}
+
+legend {
+    font-weight: bold;
+}
+
+#instructor, #semester, #course, #student, #notify, #eval, #comment, #submit {
+    flex-basis: 100%;
+}
+
+#refer {
+    flex-basis: 50%;
+}
+
+textarea {
+    width: 99%;
+    word-wrap: normal;
+    resize: vertical;
+    border-radius: 6px;
+}
+
+button {
+    border-radius: 6px;
+    text-align: center;
+    border-style: solid;
+    font-weight: bolder;
+    font-size: 80%;
+    background-color: #084483;
+    border-color: #084483;
+    color: white;
+    width: 25%;
+    min-width: 70px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 2px;
+}
+
+footer {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 99%;
+    position: absolute;
+    bottom: 0;
+    color: darkgray;
+}
+
+
+@media screen and (max-width: 750px) {
+    #refer {
+        flex: 1 1 auto;
+        flex-basis: 100%;
+    }
+
+    #eval, #notify {
+        border-bottom: darkgrey;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        padding-bottom: 1%;
+    }
+}

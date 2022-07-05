@@ -1,0 +1,176 @@
+﻿@page "/ASR/{Id?}"
+@model ASRModel
+@{ 
+    ViewData["Title"] = "Academic Status Report";
+}
+@section Styles {
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/css/ASRStyle.css")>
+}
+@section JavaScript {
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script type="text/javascript" src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    <script type="text/javascript" src=@Url.Content("~/js/ASRScript.js")></script>
+    <script type="text/javascript">var model = @Json.Serialize(@Model.ASRView);</script>
+}
+
+<body>
+    <div class="header">
+        <img src="xxxx_logo.png" />
+        <h2>Academic Status Report</h2>
+    </div>
+    <div class="container">
+        <form id="form" method="post">
+            <fieldset>
+                <legend>Student Information</legend>
+                <div class="item" id="instructor">
+                    <a>Instructor - @Model.DistinctInstructor</a>
+                    <input type="hidden" asp-for="ASRPost.Instructor" value="@Model.DistinctInstructor" />
+                </div>
+                <div class="item" id="semester">
+                    <a>Current Semester - @Model.DistinctCurrentSemester</a>
+                </div>
+                <div class="item" id="semester">
+                    <label for="session">Session:</label>
+                    <select id="session" name="session">
+                        <option>Select</option>
+                    </select>
+                </div>
+                <div class="item" id="course">
+                    <label asp-for="ASRPost.CourseID">Course ID:</label>
+                    <select id="courseid" asp-for="ASRPost.CourseID">
+                        <option value="">Select</option>
+                    </select>
+                </div>
+                <div class="item" id="course">
+                    <label for="coursetype">Course Type:</label>
+                    <select id="coursetype" name="coursetype">
+                        <option value="">Select</option>
+                    </select>
+                </div>
+                <div class="item" id="course">
+                    <label asp-for="ASRPost.SectionID">Course Section:</label>
+                    <select id="coursesection" asp-for="ASRPost.SectionID">
+                        <option value="">Select</option>
+                    </select>
+                </div>
+                <div class="item" id="student">
+                    <label asp-for="ASRPost.PeopleID">Student Name:</label>
+                    <select id="studentname" asp-for="ASRPost.PeopleID">
+                        <option value="">Select</option>
+                    </select>
+                </div>
+                <div class="item" id="student">
+                    <label asp-for="ASRPost.Grade">Current Grade:</label>
+                    <select id="currentgrade" asp-for="ASRPost.Grade">
+                        <option value="">Select</option>
+                        <option value="A">A</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B">B</option>
+                        <option value="B-">B-</option>
+                        <option value="C+">C+</option>
+                        <option value="C">C</option>
+                        <option value="C-">C-</option>
+                        <option value="D+">D+</option>
+                        <option value="D">D</option>
+                        <option value="D-">D-</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+                <div class="item" id="notify">
+                    <label asp-for="ASRPost.StudentNotification">Has the student been notified of their academic status?</label>
+                    <select id="notified" asp-for="ASRPost.StudentNotification">
+                        <option value="">Select</option>
+                        <option value="Y">Yes</option>
+                        <option value="N">No</option>
+                    </select>
+                </div>
+                <div class="item" id="notify">
+                    <label asp-for="ASRPost.StudentConference">Has a conference been arranged?</label>
+                    <select id="conference" asp-for="ASRPost.StudentConference">
+                        <option value="">Select</option>
+                        <option value="Y">Yes</option>
+                        <option value="N">No</option>
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Evaluation</legend>
+                <div class="item" id="eval">
+                    <label asp-for="ASRPost.Attendance">Student attends classes:</label>
+                    <select id="attends" asp-for="ASRPost.Attendance">
+                        <option value="">Select</option>
+                        <option value="Always">Always</option>
+                        <option value="Usually">Usually</option>
+                        <option value="Sometimes">Sometimes</option>
+                        <option value="Rarely">Rarely</option>
+                        <option value="Never">Never</option>
+                    </select>
+                </div>
+                <div class="item" id="eval">
+                    <label asp-for="ASRPost.Participation">How concerned are you with the students engagement in class?</label>
+                    <select id="engagement" asp-for="ASRPost.Participation">
+                        <option value="">Select</option>
+                        <option value="Not Concerned">Not At All</option>
+                        <option value="Slightly Concerned">Slightly</option>
+                        <option value="Moderately Concerned">Moderately</option>
+                        <option value="Highly Concerned">Highly</option>
+                        <option value="Extremely Concerned">Extremely</option>
+                    </select>
+                </div>
+                <div class="item" id="eval">
+                    <label asp-for="ASRPost.Homework">Student completes homework:</label>
+                    <select id="homework" asp-for="ASRPost.Homework">
+                        <option value="">Select</option>
+                        <option value="Always">Always</option>
+                        <option value="Usually">Usually</option>
+                        <option value="Sometimes">Sometimes</option>
+                        <option value="Rarely">Rarely</option>
+                        <option value="Never">Never</option>
+                        <option value="Not Available">Not Available</option>
+                    </select>
+                </div>
+                <div class="item" id="eval">
+                    <label asp-for="ASRPost.NonCogIssues">How concerned are you with the student's non-cognitive issues?</label>
+                    <select id="noncogissue" asp-for="ASRPost.NonCogIssues">
+                        <option value="">Select</option>
+                        <option value="Not Concerned">Not At All</option>
+                        <option value="Slightly Concerned">Slightly</option>
+                        <option value="Moderately Concerned">Moderately</option>
+                        <option value="Highly Concerned">Highly</option>
+                        <option value="Extremely Concerned">Extremely</option>
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Refer Student To:</legend>
+                <div class="item" id="refer">
+                    <input type="checkbox" id="writing" asp-for="ASRPost.Referal">
+                    <label asp-for="ASRPost.Referal">Reading/Writing Specialist</label>
+                </div>
+                <div class="item" id="refer">
+                    <input type="checkbox" id="math" asp-for="ASRPost.ReferalMs">
+                    <label asp-for="ASRPost.ReferalMs">Math Specialist</label>
+                </div>
+                <div class="item" id="refer">
+                    <input type="checkbox" id="science" asp-for="ASRPost.ReferalSs">
+                    <label asp-for="ASRPost.ReferalSs">Science Specialist</label>
+                </div>
+                <div class="item" id="refer">
+                    <input type="checkbox" id="nurse" asp-for="ASRPost.ReferalNs">
+                    <label asp-for="ASRPost.ReferalNs">Nursing Specialist</label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Comments:</legend>
+                <div class="item" id="comment" name="comment">
+                    <textarea id="txtComment" asp-for="ASRPost.Comments" maxlength="255"></textarea>
+                </div>
+            </fieldset>
+            <div class="item" id="submit">
+                <button id="submission" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>

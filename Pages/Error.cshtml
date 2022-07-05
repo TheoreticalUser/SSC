@@ -1,0 +1,30 @@
+﻿@page "{code?}"
+@model ErrorModel
+@{
+    ViewData["Title"] = "RuhRoh!!";
+}
+@section Styles {
+    <link rel="stylesheet" type="text/css" href=@Url.Content("~/css/Error.css")>
+}
+
+<body>
+    <div class="container">
+        <p>
+            <h1>Error. Something has gone wrong...</h1>
+        </p>
+        <p>
+            <h2>An error occurred while processing your request.</h2>
+        </p>
+        <p>
+            <h2>Please take a screenshot of this page and email to IT.</h2>
+        </p>
+        <p>
+            <h3>Error Code : @Model.Code</h3>
+        </p>
+        @if (Model.ShowRequestId) {
+            <p>
+                <strong>Request ID:</strong> <code>@Model.RequestId</code>
+            </p>
+        }
+    </div>
+</body>
